@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mainmenu rounded pagecontent">
+        <div class="panel panel-default">
+        <div class="panel-body">
+
+        <h3 class="text-center pt-3">{{ _('Welcome') }}</h3><!-- frmMainMenu.Panel1.Label11 -->
+
+
+        <div class="row pt-3">
+                <div class="col-sm-6 text-center">
+                <a id="Label1" href="{{ url_for('keyentry') }}"><!-- frmMainMenu.Panel1.Label1 -->
+                <img src="{{ url_for('static', filename='data_entry.png') }}"/><br/>
+                {{ _('Data Entry') }}
+                </a>
+                </div>
+                <div class="col-sm-6 text-center">
+                <a id="Label8" href="{{ url_for('metadata') }}"><!-- frmMainMenu.Panel1.Label8 -->
+                <img src="{{ url_for('static', filename='metadata_information.png') }}"/><br/>
+                {{ _('Metadata Information') }}
+                </a>
+                </div>
+        </div>
+        <div class="row pt-3">
+                <div class="col-sm-6 text-center">
+
+                <a id="Label7" href="{{ url_for('user_admin') }}"><!-- frmMainMenu.Panel1.Label7 -->
+                <img src="{{ url_for('static', filename='user_administration.png') }}"/><br/>
+                {{ _('Users Administration') }}
+                </a>
+                </div>
+
+        </div>
+
+
+        <br/><br/><br/><br/><br/>
+
+        </div>
+        </div>     
+
+</div>
+{% endblock %}

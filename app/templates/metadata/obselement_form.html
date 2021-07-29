@@ -1,0 +1,183 @@
+
+<form>
+    {{ form.hidden_tag() }}
+
+    {{ form.non_field_errors }}
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <div class="row pt-3">
+                <div class="col-sm-6 text-center">
+
+                    {# Temporary use of a table to give all labels the same width and ensure label stays with field #}
+                    <table>
+                        <tr>
+                            <td>
+                                {{ form.elementId.label }}
+                            </td>
+                            <td>
+                                {{ form.elementId(class_="form-control", attr="readonly:readonly") }}
+
+                                {% if form.elementId.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.elementId.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ form.abbreviation.label }}
+                            </td>
+                            <td>
+                                {{ form.abbreviation(class_="form-control", attr="readonly:readonly") }}
+
+                                {% if form.abbreviation.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.abbreviation.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ form.elementName.label }}
+                            </td>
+                            <td>
+                                {{ form.elementName(class_="form-control", attr="readonly:readonly") }}
+
+                                {% if form.elementName.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.elementName.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ form.description.label }}</label>
+                            </td>
+                            <td>
+                                {{ form.description(class_="form-control", attr="readonly:readonly") }}
+
+                                {% if form.description.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.description.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ form.elementScale.label }}
+                            </td>
+                            <td>
+                                {{ form.elementScale(class_="form-control", attr="readonly:readonly") }}
+
+                                {% if form.elementScale.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.elementScale.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ form.upperLimit.label }}
+                            </td>
+                            <td>
+                                {{ form.upperLimit(class_="form-control", attr="readonly:readonly") }}
+
+                                {% if form.upperLimit.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.upperLimit.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ form.lowerLimit.label }}
+                            </td>
+                            <td>
+                                {{ form.lowerLimit(class_="form-control", attr="readonly:readonly") }}
+
+                                {% if form.lowerLimit.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.lowerLimit.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ form.units.label }}
+                            </td>
+                            <td>
+                                {{ form.units(class_="form-control", attr="readonly:readonly") }}
+
+                                {% if form.units.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.units.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ form.elementtype.label }}
+                            </td>
+                            <td>
+                                {{ form.elementtype(class_="form-control", attr="readonly:readonly") }}
+
+                                {% if form.elementtype.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.elementtype.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ form.selected.label }}
+                            </td>
+                            <td>
+                                {{ form.selected(class_="form-control", attr="readonly:readonly") }}
+
+                                {% if form.selected.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.selected.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ form.qcTotalRequired.label }}
+                            </td>
+                            <td>
+                                {{ form.qcTotalRequired(class_="form-control", attr="readonly:readonly") }}
+
+                                {% if form.qcTotalRequired.errors %}
+                                    <span class="help-block">
+                                        {% for error in form.qcTotalRequired.errors %}{{ error }}<br>{% endfor %}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <div class="col-sm-6 text-center">
+                    {# This column is not used #}
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+</form>

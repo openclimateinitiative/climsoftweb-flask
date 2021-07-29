@@ -1,0 +1,99 @@
+# Translations template for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-04-10 15:29+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: app/__init__.py:14
+msgid "Please log in to access this page"
+msgstr ""
+
+#: app/forms.py:8
+msgid "Username"
+msgstr ""
+
+#: app/forms.py:9
+msgid "Password"
+msgstr ""
+
+#: app/forms.py:10
+msgid "Remember Me"
+msgstr ""
+
+#: app/forms.py:11 app/routes.py:62
+msgid "Sign In"
+msgstr ""
+
+#: app/routes.py:51
+msgid "Invalid username or password"
+msgstr ""
+
+#: app/templates/base.html:172
+msgid "Input"
+msgstr ""
+
+#: app/templates/base.html:182
+msgid "Administration"
+msgstr ""
+
+#: app/templates/index.html:9
+msgid "Welcome"
+msgstr ""
+
+#: app/templates/index.html:16
+msgid "Data Entry"
+msgstr ""
+
+#: app/templates/index.html:22
+msgid "Metadata Information"
+msgstr ""
+
+#: app/templates/index.html:31
+msgid "Users Administration"
+msgstr ""
+
+#: app/templates/keyentry.html:9
+msgid "Data Key Entry Forms"
+msgstr ""
+
+#: app/templates/keyentry.html:15
+msgid "Form Name"
+msgstr ""
+
+#: app/templates/keyentry.html:23
+msgid "Synoptic data for input into TCDF form for RA1"
+msgstr ""
+
+#: app/templates/keyentry.html:33
+msgid "Hourly data"
+msgstr ""
+
+#: app/templates/keyentry.html:43
+msgid "Daily data for the whole month"
+msgstr ""
+
+#: app/templates/keyentry.html:53
+msgid "Monthly data"
+msgstr ""
+
+#: app/templates/user_admin.html:8
+msgid "User Admin"
+msgstr ""
+
+#: app/templates/user_admin.html:10
+msgid "You must have an administrator account in order to manage users"
+msgstr ""
+

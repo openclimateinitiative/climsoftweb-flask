@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="container whitepage rounded pagecontent">
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                <!--
+                <h4 class="text-center pt-3">Hourly Data</h4>{# form_hourly.Text - formHourly.vb #}
+                <br/>
+                -->
+
+                {% include 'keyentry/selector_' + form_name + '.html' %}
+
+                <br/><br/>
+
+                <div class="container border" style="position: relative">
+                    <div style="position:absolute; top:-20; left:10; padding:5px; background-color: white">
+                        {{ title }}
+                    </div>
+
+                    <div id="keyentryForm">
+                        {% include 'keyentry/form' + form_name + '_form.html' %}
+                    </div>
+<!--
+                    <div id="messageNoForm" class="text-center text-info pt-5 pb-5">
+                        Please select from the options above
+                    </div>
+-->
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+<script type="text/javascript">
+    /* FIXME: replace window.onload with sekaizai. Add <form> tags and {# csrf_token #} */
+
+/*
+    function loadKeyEntryForm(formName, urlReverse, postData) {
+        $.post( urlReverse, postData, function(data) {
+            // If successful, data will return the primary key to get the required form data
+            $( "#keyentryForm" ).load( "/keyentry/" + formName + "/" + data + "/update/", function( html ) {
+                $(".choice").click( function () {
+                    console.log("choice");
+                });
+                $(".value").click( function () {
+                    console.log('clicked');
+                    console.log(this.value);
+                });
+                console.log($(".value"));
+
+                $(".value").each( function () {
+                    this.onclick = function () {
+                        console.log('clicked');
+                    };
+                });
+                // Only show if request is successful
+                $("#keyentryForm").html(html).show();
+                $("#messageNoForm").hide();
+            });
+        });
+    }
+*/
+
+    function build_url() {
+        var url = '/keyentry/{{ form_name }}'
+        var part;
+        part = $('#stationidChoice').val(); if (part) { url = url + '/' + part }
+        part = $('#elementidChoice').val(); if (part) { url = url + '/' + part }
+        part = $('#yyyyChoice').val(); if (part) { url = url + '/' + part }
+        part = $('#mmChoice').val(); if (part) { url = url + '/' + part }
+        part = $('#ddChoice').val(); if (part) { url = url + '/' + part }
+        part = $('#hhChoice').val(); if (part) { url = url + '/' + part }
+        return url;
+    }
+
+    function initSelectors() {        
+        // initial element choice
+        {% if vars %}
+            var initial_choices = {};
+
+            initial_choices = {
+                stationidChoice: "{{ vars.station_id }}",
+                elementidChoice: "{{ vars.element_id }}",
+                yyyyChoice: "{{ vars.year }}",
+                mmChoice: "{{ vars.month }}",
+                ddChoice: "{{ vars.day }}",
+                hhChoice: "{{ vars.hour }}",
+            }
+        {% endif %}
+
+        {% if vars %} $('#elementidChoice').val("{{ vars.element_id }}"); {% endif %}
+
+        $( "#stationidChoice" ).load( "/metadata/station/select", function() {
+            // initial station choice
+            {% if vars %} $('#stationidChoice').val("{{ vars.station_id }}"); {% endif %}
+
+            $(".choice").change( function() {
+                var changed = false;
+                $(".choice").each(function() {
+                    if (initial_choices[this.id] != this.value){
+                        changed = true;
+                    }
+                });
+                if (changed) {
+                    $('#btnGo')
+                        .prop('disabled', false)
+                        .removeClass('btn-secondary')
+                        .addClass('btn-success')
+                        .parent().prop('action', build_url());
+                } else {
+                    $('#btnGo')
+                        .prop('disabled', true)
+                        .removeClass('btn-success')
+                        .addClass('btn-secondary');
+                }
+                // TODO:
+                // loop over all .choice, if they're all same as initial_choices then disable go
+                // button and allow editing of form
+                // if they are differnt to initial_choices then enable go button and prevent
+                // editing of form
+            });
+
+            /*
+            $(".choice").change( function() {
+                var foundEmpty = false;
+                var postData = {
+                    "csrfmiddlewaretoken": "{{ csrf_token }}",
+                    "model": "{{ model }}"
+                };
+                $('.choice').each(function (index){
+                    if (this.value.length === 0) {
+                        foundEmpty = true;
+                    }
+                    postData[this.id] = this.value;
+                });
+                if (foundEmpty) {
+                    $("#keyentryForm").hide();
+                    $("#messageNoForm").show();
+                } else {
+                    loadKeyEntryForm("{{ name }}", "{# url reverse #}", postData);
+                }
+            });
+            */
+        });
+    }
+
+    window.onload = function() {
+        // fields are only populated if they exist
+
+        {% if vars %}
+            $('#yyyyChoice').val("{{ vars.year }}");
+            $('#mmChoice').val("{{ vars.month }}");
+            $('#ddChoice').val("{{ vars.day }}");
+            $('#hhChoice').val("{{ vars.hour }}");
+        {% endif %}
+
+        /* Load station options, then element options, then setup change event */
+        if ($('#elementidChoice').length) {
+            /* Continue after successfully populating elements */
+            $( "#elementidChoice" ).load( "/metadata/element/select", function() {
+                initSelectors();
+            });
+        } else {
+            initSelectors();
+        }        
+
+    };
+</script>
+
+{% endblock %}

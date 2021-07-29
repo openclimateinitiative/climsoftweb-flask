@@ -1,0 +1,10 @@
+email-validator
+flask
+flask-babel
+flask-login
+flask-migrate
+flask-sqlalchemy
+flask-wtf
+mysqlclient
+python-dotenv
+WTForms-Alchemy

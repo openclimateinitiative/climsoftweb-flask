@@ -1,0 +1,285 @@
+
+<form>
+    {{ form.hidden_tag() }}
+
+    {# form.non_field_errors #}
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <div class="row pt-3">
+                <div class="col-sm-6 text-center">
+
+                    {# Temporary use of a table to give all labels the same width and ensure label stays with field #}
+                    <table>
+                        <tr>
+                            <td>
+                                {{ form.stationId.label }}
+                            </td>
+                            <td>
+                                {{ form.stationId(class_="form-control", attr="readonly:readonly") }}
+
+                                {#% if form.stationid.errors %#}
+                                    <span class="help-block">
+                                        {#% for error in form.stationid.errors %#}{# error #}<br>{#% endfor %#}
+                                    </span>
+                                {#% endif %#}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ form.stationName.label }}
+                            </td>
+                            <td>
+                                {{ form.stationName(class_="form-control", attr="readonly:readonly") }}
+
+                                {#% if form.stationname.errors %#}
+                                    <span class="help-block">
+                                        {#% for error in form.stationname.errors %#}{# error #}<br>{#% endfor %#}
+                                    </span>
+                                {#% endif %#}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ form.latitude.label }}
+                            </td>
+                            <td>
+                                {{ form.latitude(class_="form-control", attr="readonly:readonly") }}
+
+                                {#% if form.latitude.errors %#}
+                                    <span class="help-block">
+                                        {#% for error in form.latitude.errors %#}{# error #}<br>{#% endfor %#}
+                                    </span>
+                                {#% endif %#}
+                            </td>
+
+                        </tr>
+                            <td>
+                                {{ form.longitude.label }}
+                            </td>
+                            <td>
+                                {{ form.longitude(class_="form-control", attr="readonly:readonly") }}
+
+                                {#% if form.longitude.errors %#}
+                                    <span class="help-block">
+                                        {#% for error in form.longitude.errors %#}{# error #}<br>{#% endfor %#}
+                                    </span>
+                                {#% endif %#}
+                            </td>
+                        <tr>
+                            <td>
+                                {{ form.elevation.label }}
+                            </td>
+                            <td>
+                                {{ form.elevation(class_="form-control", attr="readonly:readonly") }}
+
+                                {#% if form.elevation.errors %#}
+                                    <span class="help-block">
+                                        {#% for error in form.elevation.errors %#}{# error #}<br>{#% endfor %#}
+                                    </span>
+                                {#% endif %#}
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <div class="col-sm-6 text-center">
+                    {# This bootstrap column is intentionally empty #}
+                </div>
+
+            </div>
+
+            <div class="row pt-3">
+                <div class="col-sm-6 text-center">
+
+                    {# Temporary use of a table to give all labels the same width and ensure label stays with field #}
+                    <table>
+                        <tr>
+                            <td>
+                                {{ form.wmoid.label }}
+                            </td>
+                            <td>
+                                {{ form.wmoid(class_="form-control", attr="readonly:readonly") }}
+
+                                {#% if form.wmoid.errors %#}
+                                    <span class="help-block">
+                                        {#% for error in form.wmoid.errors %#}{# error #}<br>{#% endfor %#}
+                                    </span>
+                                {#% endif %#}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ form.icaoid.label }}
+                            </td>
+                            <td>
+                                {{ form.icaoid(class_="form-control", attr="readonly:readonly") }}
+
+                                {#% if form.icaoid.errors %#}
+                                    <span class="help-block">
+                                        {#% for error in form.icaoid.errors %#}{# error #}<br>{#% endfor %#}
+                                    </span>
+                                {#% endif %#}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ form.country.label }}
+                            </td>
+                            <td>
+                                {{ form.country(class_="form-control", attr="readonly:readonly") }}
+
+                                {#% if form.country.errors %#}
+                                    <span class="help-block">
+                                        {#% for error in form.country.errors %#}{# error #}<br>{#% endfor %#}
+                                    </span>
+                                {#% endif %#}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ form.authority.label }}
+                            </td>
+                            <td>
+                                {{ form.authority(class_="form-control", attr="readonly:readonly") }}
+
+                                {#% if form.authority.errors %#}
+                                    <span class="help-block">
+                                        {#% for error in form.authority.errors %#}{# error #}<br>{#% endfor %#}
+                                    </span>
+                                {#% endif %#}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ form.adminRegion.label }}
+                            </td>
+                            <td>
+                                {{ form.adminRegion(class_="form-control", attr="readonly:readonly") }}
+
+                                {#% if form.adminRegion.errors %#}
+                                    <span class="help-block">
+                                        {#% for error in form.adminRegion.errors %#}{# error #}<br>{#% endfor %#}
+                                    </span>
+                                {#% endif %#}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ form.drainageBasin.label }}
+                            </td>
+                            <td>
+                                {{ form.drainageBasin(class_="form-control", attr="readonly:readonly") }}
+
+                                {#% if form.drainageBasin.errors %#}
+                                    <span class="help-block">
+                                        {#% for error in form.drainageBasin.errors %#}{# error #}<br>{#% endfor %#}
+                                    </span>
+                                {#% endif %#}
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <div class="col-sm-6 text-center">
+
+                    {# Temporary use of a table to give all labels the same width and ensure label stays with field #}
+                    <table>
+                        <tr>
+                            <td>
+                                {{ form.qualifier.label }}
+                            </td>
+                            <td>
+                                {{ form.qualifier(class_="form-control", attr="readonly:readonly") }}
+
+                                {#% if form.qualifier.errors %#}
+                                    <span class="help-block">
+                                        {#% for error in form.qualifier.errors %#}{# error #}<br>{#% endfor %#}
+                                    </span>
+                                {#% endif %#}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ form.openingDatetime.label }}
+                            </td>
+                            <td>
+                                {{ form.openingDatetime(class_="form-control", attr="readonly:readonly") }}
+
+                                {#% if form.openingDatetime.errors %#}
+                                    <span class="help-block">
+                                        {#% for error in form.openingDatetime.errors %#}{# error #}<br>{#% endfor %#}
+                                    </span>
+                                {#% endif %#}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ form.closingDatetime.label }}
+                            </td>
+                            <td>
+                                {{ form.closingDatetime(class_="form-control", attr="readonly:readonly") }}
+
+                                {#% if form.closingDatetime.errors %#}
+                                    <span class="help-block">
+                                        {#% for error in form.closingDatetime.errors %#}{# error #}<br>{#% endfor %#}
+                                    </span>
+                                {#% endif %#}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ form.geoLocationMethod.label }}
+                            </td>
+                            <td>
+                                {{ form.geoLocationMethod(class_="form-control", attr="readonly:readonly") }}
+
+                                {#% if form.geoLocationMethod.errors %#}
+                                    <span class="help-block">
+                                        {#% for error in form.geoLocationMethod.errors %#}{# error #}<br>{#% endfor %#}
+                                    </span>
+                                {#% endif %#}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ form.geoLocationAccuracy.label }}
+                            </td>
+                            <td>
+                                {{ form.geoLocationAccuracy(class_="form-control", attr="readonly:readonly") }}
+
+                                {#% if form.geoLocationAccuracy.errors %#}
+                                    <span class="help-block">
+                                        {#% for error in form.geoLocationAccuracy.errors %#}{# error #}<br>{#% endfor %#}
+                                    </span>
+                                {#% endif %#}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ form.stationOperational.label }}
+                            </td>
+                            <td>
+                                {{ form.stationOperational(class_="form-control", attr="readonly:readonly") }}
+
+                                {#% if form.stationOperational.errors %#}
+                                    <span class="help-block">
+                                        {#% for error in form.stationOperational.errors %#}{# error #}<br>{#% endfor %#}
+                                    </span>
+                                {#% endif %#}
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+</form>

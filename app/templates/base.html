@@ -1,0 +1,274 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='favicon.ico') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+
+        body {
+            padding-top: 59px; /* navbar */
+            background: #fff url("{{ url_for('static', filename='pixabay_light-1282314_1920.jpg') }}");
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .navbar {
+            border-bottom: 1px solid #555;
+        }
+        a, a:hover, a:focus, a:active {
+          color: inherit;
+          text-decoration: none;
+        }
+
+        /* default for mobile, gets extended below for other screen sizes */
+        .centercenter {
+            margin: 1rem;
+        }
+
+        .stickyheader {
+          position: fixed;
+          background-color: rgba(0, 0, 0, .2);
+          top: 0;
+          width: 100%
+        }
+        
+        .fa-1-5x {
+            font-size: 1.5em;
+        }
+
+        .zx-100 {
+            z-index:100;
+        }
+
+        .text-darkslategrey {
+          color: #2F4F4F;
+        }
+        
+        .mainmenu {
+          background-color: #FAF0E6;
+          border: 1px solid black;
+        }
+
+        .whitepage {
+          background-color: #FFF;
+          border: 1px solid black;
+        }
+
+        .nav-tabs {
+            border-bottom-color: #000!important;
+        }
+
+        .nav-item .active {
+            border-top-color: #000!important;
+            border-left-color: #000!important;
+            border-right-color: #000!important;
+        }
+
+        .nav-item a:hover {
+            border-color: #000!important;
+            border-bottom-color: #bbb!important;
+        }
+
+        .divider-fixed {
+            margin-top: 3px;
+            border-bottom: 1px solid #CCC;
+            margin-bottom: 3px;
+        }
+
+        .tab-container {
+            padding-left: 0; padding-right: 0;
+        }
+
+        .border-top-none {
+            border-top: none;
+        }
+
+
+        @media(max-width:100px) {
+
+        }
+
+        /* Bootstrap 4 Media Queries */
+
+        /* Extra small devices (portrait phones, less than 576px):
+           No media query since this is the default in Bootstrap
+        */
+
+        /* Small devices (landscape phones, 576px and up) */
+        /* @media (min-width: 576px) { ... }*/
+
+
+
+/*
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+*/
+          /* Once the viewport becomes 576px wide or more use the background image and content within an obvious box */
+          @media(min-width:576px) {
+
+              .rounded {
+                  border-radius: .5rem!important;
+              }
+              .rounded-bottom {
+                  border-bottom-left-radius: .3rem!important;
+                  border-bottom-right-radius: .3rem!important;
+              }
+
+              .pagecontent {
+                  margin-top: 2rem!important;
+              }
+              .mobile-hide { display: table-cell !important; }
+
+              .float-right-sometimes {
+                  /* Intend to float contents of first column to right only when there is a second column alongside */
+                  float: right;
+              }
+          }
+
+        /* Only center vertically once the device height > login box + navbar (240+46≈300) and width > 576 */
+          @media(min-height:300px) and (min-width:576px) {
+              .centercenter {
+                  margin: auto;
+                  position: absolute;
+                  left: 50%;
+                  top: 50%;
+                  -webkit-transform: translate(-50%, -50%);
+                  transform: translate(-50%, -50%);
+              }
+          }
+
+
+    </style>
+</head>
+<body>
+
+{# With longer navbar change to navbar-expand-md or -lg #}
+<nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light zx-100">
+    <div class="d-inline">
+        {% if not current_user.is_anonymous %}
+            <button class="navbar-toggler mr-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        {% endif %}
+        <a class="navbar-brand text-{#{ settings.CUSTOM_THEME }#} font-weight-bold" href="/">Climsoft Web</a>
+    </div>
+
+    {% if not current_user.is_anonymous %}
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item active dropdown">
+            <a class="nav-link" href="#"
+               role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                id="mnuInput">
+              {{ _('Input') }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="mnuInput">
+              <a class="dropdown-item" id="mnuInputKeyEntry" href="{{ url_for('keyentry') }}">Key Entry</a>
+            </div>
+          </li>
+          <li class="nav-item active dropdown">
+            <a class="nav-link" href="#"
+               role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+               id="mnuAdministration">
+               {{ _('Administration') }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="mnuAdministration">
+              <a class="dropdown-item" id="UserAdminToolStripMenuItem" href="{{ url_for('user_admin') }}">User Admin</a>
+              <a class="dropdown-item" id="MetadataToolStripMenuItem" href="{{ url_for('metadata') }}">Metadata</a>
+              <a class="dropdown-item" id="PasswordToolStripMenuItem" style="color: #7d757d;" disabled_href="{# url 'change_password' #}">Change Password</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    {% endif %}
+
+    <div class="dropdown" style="position: fixed; top: 0; right: 0;">
+        <button class="btn mt-2 mr-3 btn-{#{ settings.CUSTOM_THEME }#}" type="button" id="btnLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {% if not current_user.is_anonymous %}
+                <i class="fa fa-user fa-1-5x {% if settings.CUSTOM_THEME %}text-white{% else %}text-darkslategrey{% endif %}"></i>
+            {% else %}
+                {# Language for anon currently determined by browser settings, disabled below #}
+                {# <i class="fa fa-globe fa-1-5x {% if settings.CUSTOM_THEME %}text-white{% else %}text-darkslategrey{% endif %}"></i> #}
+            {% endif %}
+        </button>
+        {% if not current_user.is_anonymous %}
+            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="btnLanugage">
+                <!--<li><a class="dropdown-item" href="{# url 'user_profile' #}">User Profile</a></li>-->
+                <!--<li><a class="dropdown-item" href="{# url 'language' #}">Language</a></li>-->
+                <!--<li class="divider-fixed"></li>-->
+                <li><a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        {% else %}
+            {# Language for anon currently determined by browser settings, disabled below #}
+            
+            {# <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnLanugage"> #}
+            {#    <a class="dropdown-item" href="#">English</a> #}
+            {#    <a class="dropdown-item" href="#">Français</a> #}
+            {#    <a class="dropdown-item" href="#">Portugais</a> #}
+            {# </div> #}
+        {% endif %}
+    </div>
+
+</nav>
+
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+            {%- for category, message in messages %}
+                <div class="alert alert-{{ category }} block-message error {% if category=='halt' %}alert-danger{% endif %}">
+                    <ul>
+                        <li class="{{ category }}">{{ message }}</li>
+                    </ul>
+                </div>            
+            {% endfor -%}
+    {% endif %}
+{% endwith %}
+
+
+    {% if not get_flashed_messages(category_filter=["halt"]) %}
+
+        {% block content %}{% endblock %}
+
+    {% endif %}
+
+    <br/>
+        
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+        // Enter to tab
+        $('body').on('keydown', 'input, select, textarea', function(e) {
+            var self = $(this);
+            var form = self.parents('form:eq(0)');
+            var focusable;
+            var next;
+            if (e.keyCode == 13 && !($(this).hasClass('no-enter-to-tab'))) {
+                focusable = form.find('input,a,select,button,textarea').filter(':visible');
+                next = focusable.eq(focusable.index(this)+1);
+                if (next.length) {
+                    next.focus();
+                } else {
+                    form.submit();
+                }
+                return false;
+            }
+        });
+    });
+</script>
+
+{# render_block "js" #}
+
+</body>
+</html>

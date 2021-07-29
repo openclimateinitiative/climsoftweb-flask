@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="container whitepage rounded pagecontent">
+            <div class="panel panel-default">
+              <div class="panel-body">
+              
+                <h4 class="text-center pt-3">{{ _('Data Key Entry Forms') }}</h4><!-- frmKeyEntry.Text -->{# frmDataEntry.vb #}
+                <br/><br/>
+
+                <table class="table" style="width: 80%; border-radius: .5rem!important; margin: 0px auto;">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="mobile-hide" style="display: none">{{ _('Form Name') }}</th><!-- lstViewForms.Columns.0.Text -->
+                      <th scope="col">Form Description</th><!-- lstViewForms.Columns.1.Text -->
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row" class="mobile-hide" style="display: none">form_Synoptic2RA1</th>
+                      <td>{{ _('Synoptic data for input into TCDF form for RA1') }}</td>
+                      <td>
+                        <form action="{{ url_for('form_synoptic2ra1') }}" method="get" class="mb-0">
+                           <input type="submit" class="btn btn-success" value="Select"/>
+                        </form>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row" class="mobile-hide" style="display: none">form_hourly</th>
+                      <td>{{ _('Hourly data') }}</td>
+                      <td>
+                        <form action="{{ url_for('form_hourly') }}" method="get" class="mb-0">
+                           <input type="submit" class="btn btn-success" value="Select"/>
+                        </form>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row" class="mobile-hide" style="display: none">form_daily2</th>
+                      <td>{{ _('Daily data for the whole month') }}</td>
+                      <td>
+                        <form action="{{ url_for('form_daily2') }}" method="get" class="mb-0">
+                           <input type="submit" class="btn btn-success" value="Select"/>
+                        </form>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row" class="mobile-hide" style="display: none">form_monthly</th>
+                      <td>{{ _('Monthly data') }}</td>
+                      <td>
+                        <form action="{{ url_for('form_monthly') }}" method="get" class="mb-0">
+                           <input type="submit" class="btn btn-success" value="Select"/>
+                        </form>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+
+                  <br/><br/><br/>
+
+              </div>
+            </div>     
+
+    </div>
+
+{% endblock %}
